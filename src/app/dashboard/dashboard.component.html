@@ -1,0 +1,467 @@
+<form>
+  <style>
+      /* app.component.css */
+  
+  /* Full page background with 25% left side and 75% right side */
+  .body-wrapper {
+    display: flex;
+    flex-direction: column; /* Vertical layout */
+    height: 100vh; /* Full viewport height */
+    background: linear-gradient(to right, #cdc9c9 25%, #c3c3c3 25%); /* Split background */
+  }
+  
+  /* Header */
+  header {
+    background-color: #ffffff;
+    
+    color: rgb(22, 21, 21);
+    text-align:left;
+  }
+  
+  /* Main Content Area */
+  .row {
+    display: flex; /* Flexbox for row layout */
+    flex-grow: 1; /* Make content area grow to take remaining space */
+  }
+  
+  .col-md-3 {
+    background-color: #000000; /* Left section with 25% width */
+    padding: 20px;
+  }
+  
+  .col-md-9 {
+    background-color: #b2b0b0; /* Right section with 75% width */
+    padding: 20px;
+  }
+  .layout {
+display: flex;
+min-height: 100vh;
+font-family: Arial, sans-serif;
+}
+
+
+
+.sidebar {
+width: 250px;
+background-color: #0a0a0a;
+color: #fff;
+padding: 20px;
+}
+.sidebar ul {
+list-style: none;
+padding: 0;
+}
+
+.sidebar ul li {
+padding: 10px;
+border-radius: 5px;
+cursor: pointer;
+
+}
+.sidebar {
+width: 250px;
+background-color: #0a0a0a;
+color: #fff;
+padding: 20px;
+}
+.layout {
+display: flex;
+min-height: 100vh;
+font-family: Arial, sans-serif;
+}
+.custom-line {
+width: 100%; /* Full width */
+height: 2px; /* Thickness */
+background-color: #ddd; /* Light gray color */
+margin: 20px 0; /* Spacing above and below */
+opacity: 0.6; /* Transparency */
+}
+.general-settings {
+width: 100%;
+margin: 40px auto;
+}
+
+h2 {
+font-size: 24px;
+}
+
+/* Services Container */
+.services-container {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+}
+
+/* Line Break */
+.line-break {
+flex-basis: 100%; /* Forces next items to the next row */
+height: 0; /* No visible height */
+}
+
+/* Service Status Card */
+.service-status-card {
+display: flex;
+flex-direction: column;
+justify-content:space-between;
+width: 400px;
+padding: 20px;
+border-radius: 80px;
+}
+
+.service-details {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.service-name {
+font-size: 20px;
+font-weight: bold;
+color: #28a745;
+}
+
+/* Toggle Styles */
+.toggle {
+width: 80px;
+height: 20px;
+border-radius: 0px;
+position: relative;
+}
+
+.toggle::before {
+content: "";
+position: absolute;
+top: 0px;
+left: 3px;
+width: 25px;
+height: 20px;
+border-radius: 120%;
+background-color: rgb(243, 238, 238);
+transition: all 0.5s ease;
+}
+
+/* Active Toggle */
+.toggle.active {
+background-color: #28a745;
+}
+
+.toggle.active::before {
+transform: translateX(50px);
+}
+
+/* Inactive Toggle */
+.toggle.inactive {
+background-color: #ccc;
+}
+
+.toggle.inactive::before {
+transform: translateX(0);
+
+}
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Container */
+.time-settings-container {
+  width: 90%;
+  margin: 20px auto;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Header */
+.time-settings-title {
+  display: flex;
+  align-items: baseline;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-weight: bold;
+  color: #333;
+}
+
+.section-subtitle {
+  color: #00c853; /* Green color for 'DelhiVery' */
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+/* Hours Section Styling */
+.hours-section {
+  margin-bottom: 20px;
+}
+
+.hours-header {
+  color: #00c853;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Table Styling */
+.time-settings-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  opacity: 0.7; /* Low opacity for table */
+}
+
+.time-settings-table thead th {
+  background-color: #f9f9f9;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.time-settings-table tbody td {
+  border: none;
+  border-bottom: 1px dotted #ccc; /* Dotted line between rows */
+  padding: 12px;
+  font-size: 14px;
+  color: #555;
+}
+
+.time-settings-table .header {
+  text-align: left;
+  padding-left: 15px;
+  font-weight: bold;
+  color: #00c853; /* Green color for section headers */
+  background-color: #f5f5f5;
+}
+.custom-dotline {
+border-top: 3px dotted #d5d0d0; /* Creates a dotted horizontal line */
+width: 100%;                /* Full width */
+margin: 20px 0;             /* Spacing above and below */
+}
+  
+  /* Footer */
+  /* footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+  } */
+  
+   </style>
+  <div class="body-wrapper">
+      <!-- Header -->
+      <header class="bg-body-secondary">
+        <img src="../../../assets/Limetray logo.jpg" style="height: 70px;width: 314px;">
+      
+        <span style="float: right; margin-right: 30px; padding-top: 20px;">Burger King</span>
+        <img src="../../../assets/burger_king.png"style="height: 40px;width: 25px; float: right; padding-top: 20px;" >
+                     
+        <i  class="bi bi-telephone-fill" style="float: right; margin-right: 30px; padding-top: 20px;" > Help</i>
+      
+      </header>
+    
+      <!-- Main Content Area with 25% and 75% Split -->
+      <div class="row flex-grow-1">
+        <div class="col-md-3">
+          <div style="color: rgb(228, 224, 224);">
+              
+              <div class="layout">
+                  <!-- Sidebar -->
+                  <aside class="sidebar">
+                    <div class="logo"></div>
+                    <nav>
+                      <ul>
+                       
+                        <li  class="bi bi-house-door">  Home</li>
+                        <li class="bi bi-globe" > Website Builder</li>
+                        
+                        <li class="active ;bi bi-cart4" > Online Order</li>
+                        <li class="bi bi-globe" > CRM</li>
+                        <li class="bi bi-backpack4"> Tap</li>
+                        <li class="bi bi-globe" > POS</li>
+                        <li class="bi bi-file-spreadsheet"> VN</li>
+                        
+                        <li class="bi bi-credit-card-2-front"> Payment Integrations</li>
+                        
+                        <li class="bi bi-layout-text-window-reverse" > TPAI</li>
+                       
+                        <li class="bi bi-truck"> Delivery Integrations</li>
+                        <li class="bi bi-globe" > Pulse</li>
+                        <li class="bi bi-pc-display-horizontal">Order Relay Products</li>
+                        <li class="bi bi-person-wheelchair"> Table Reservations</li>
+                       
+                        <li class="bi bi-pc-display-horizontal"> Offers</li>
+                      </ul>
+                    </nav>
+                  </aside>
+              </div>
+                  </div>
+      
+        </div>
+        <div class="col-md-9">
+
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="container-fluid">
+                <a class="navbar-brand ;bi bi-graph-up-arrow" style="margin-left: 50px; color: #a6a2a2;" href="#">Dashboard</a>
+                <a class="navbar-brand ;bi bi-gear-fill" aria-current="page" href="#" style="margin-left: 50px; color: #a6a2a2;"> Settings</a>
+                <div class="collapse navbar-collapse" id="navbarText">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                     
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" style="margin-left: 100px; color: #d4d1d1;" href="#">TIME SETTINGS</a>
+                    </li>
+                   
+                  </ul>
+                  <span class="navbar-text">
+                     
+                      
+                    
+                   <a class="bg-warning" style="color: #f9f5f5; padding: 6px; font-family: 'Times New Roman', Times, serif; margin: 8px;" > MULTI-LOCATION SETTINGS </a>
+                   
+                   <a class="bi bi-chevron-left" style="background-color: mediumspringgreen;"> BACK</a>
+                  </span>
+                </div>
+              </div>
+            </nav>
+            <br>
+          <div class="bg-light p-3">
+
+              <span>
+            <b class="bi bi-gear-wide-connected">GENERAL SETTINGS</b>
+            
+            <b style="color: rgb(2, 247, 177); float:right;">NEW DELHI</b>
+            <b class="bi bi-geo-alt-fill" style="float: right;">DWARKA,</b>
+          </span>
+           <p class="custom-line"></p>
+           <h5 style="margin-left: 15px;"  class="section-title"> Request Services</h5>
+           <img src="../../../assets/shadowfax.png" style="margin-left: 35px;height: 50px;width: 100px;">
+            <img src="../../../assets/grab.png" style="margin-left: 120px;height: 50px;width: 100px;">
+            <br>
+            <b style="margin-left: 40px; font-family: 'Times New Roman', Times, serif;" type="button" class="btn btn-outline-success" disabled>Request Service </b>
+          <b style="margin-left: 110px; font-family: 'Times New Roman', Times, serif;">service Request</b>
+          <p class=" custom-line"></p>
+          
+          <div class="general-settings">
+            <h5  class="section-title">Active/Inactive Services</h5>
+            <div class="services-container">
+              <!-- DelhiVery (First Line) -->
+              <div class="service-status-card">
+                <div class="service-details">
+                  <p class="service-name">DelhiVery</p>
+                  <div class="toggle active"></div>
+                </div>
+              </div>
+              <!-- Break Line -->
+              <div class="line-break"></div>
+              <!-- Grab (Second Line) -->
+              <div class="service-status-card">
+                <div class="service-details">
+                  <p class="service-name">Grab</p>
+                  <div class="toggle active"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="custom-line"></p>
+          <h5 style="margin-left: 15px;"  class="section-title"> Priority Settings</h5>
+          <p style="margin-left: 15px;">Drag the service against the prority youwant to asign to it</p>
+
+          <i style="margin-left:35px; font-size:2rem; " class="bi bi-1-square"></i>
+          <img  src="../../../assets/grab_icon.png" style="margin-left: 60px; margin-bottom: 20px; height: 80px; width: 120px;"><br>
+          <i style="margin-left:35px; font-size:2rem; " class="bi bi-2-square"></i>
+          <img  src="../../../assets/delhivery_icon.png" style="margin-left: 60px; margin-bottom: 20px; height: 80px; width: 160px;">
+          <p class="custom-line"></p>
+          
+          <!-- Time Settings Section -->
+          <h5 style="margin-left: 15px;" class="section-title">Time Settings</h5>
+          <span style="margin-left: 15px; color:#eabe0e;" class="section-subtitle">DelhiVery</span>
+<div class="time-settings-container">
+<!-- Section Header -->
+<h3 class="time-settings-title">
+  
+</h3>
+
+<!-- Active Hours Table -->
+<div class="hours-section">
+  <h4 class="hours-header"></h4>
+  <table class="time-settings-table">
+    <thead>
+      <tr>
+        <th class="header">ACTIVE HOURS</th>
+        <th>MON</th>
+        <th>TUE</th>
+        <th>WED</th>
+        <th>THU</th>
+        <th>FRI</th>
+        <th>SAT</th>
+        <th>SUN</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="header">Start Time</td>
+        <td>09:30</td><td>09:30</td><td>09:30</td>
+        <td>09:30</td><td>09:30</td><td>09:30</td><td>09:30</td>
+      </tr>
+      <tr>
+        <td class="header">End Time</td>
+        <td>24:00</td><td>24:00</td><td>24:00</td>
+        <td>24:00</td><td>24:00</td><td>24:00</td><td>24:00</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p class="custom-dotline"></p>
+
+<!-- Inactive Hours Table -->
+<div class="hours-section">
+  <table class="time-settings-table">
+    <thead>
+      <tr>
+        <th class="header"> INACTIVE HOURS</th>
+        <th>MON</th>
+        <th>TUE</th>
+        <th>WED</th>
+        <th>THU</th>
+        <th>FRI</th>
+        <th>SAT</th>
+        <th>SUN</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="header">Start Time</td>
+        <td>12:00</td><td>12:00</td><td>12:00</td>
+        <td>12:00</td><td>12:00</td><td>12:00</td><td>12:00</td>
+      </tr>
+      <tr>
+        <td class="header">End Time</td>
+        <td>15:00</td><td>15:00</td><td>15:00</td>
+        <td>15:00</td><td>15:00</td><td>15:00</td><td>15:00</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+          
+          </div>
+        </div>
+      </div>
+    
+      <!-- Footer -->
+      <!-- <footer class="bg-dark text-white text-center p-4">
+        <p>&copy; 2024 My Angular Website</p>
+      </footer> -->
+    </div>
+
+</form>
